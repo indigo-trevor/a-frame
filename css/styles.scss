@@ -1,0 +1,9 @@
+// Mixins
+@import "partials/__reset.scss";          // Boilerplate globals
+@import "partials/__mixins.scss";         // SASS Mixins
+
+// Globals
+@import "partials/__variables";           // Sitewide variables declaration
+@import "partials/__typography";          // Sitewide Typography declaration
+@import "partials/__grid";                // Grid
+@import "partials/__globals";             // Sitewide styling of core DOM
