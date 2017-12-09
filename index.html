@@ -6,29 +6,74 @@
     <meta name="description" content="A-Frame POC">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
     <script src="bundle.js"></script>
-    <script src="skyGradient.js"></script>
   </head>
   <body>
-    <a-scene raycaster="far: 100; objects: [link];" cursor="rayOrigin: mouse" camera-position>
-      <a-assets>
-        <img id="arena" crossOrigin="anonymous" src="https://cdn.aframe.io/link-traversal/aframeArena.png">
-        <img id="thumbCity" crossOrigin="anonymous" src="https://cdn.aframe.io/link-traversal/thumbs/city.png">
-        <img id="thumbSunrise" crossOrigin="anonymous" src="https://cdn.aframe.io/link-traversal/thumbs/sunrise.png">
-        <img id="thumbMountains" crossOrigin="anonymous" src="https://cdn.aframe.io/link-traversal/thumbs/mountains.png">
-      </a-assets>
-      <a-link href="city.html" position="-3.5 1.5 -1.0" image="#thumbCity"></a-link>
-      <a-link href="sunrise.html" position="0 1.5 -1.0" image="#thumbSunrise"></a-link>
-      <a-link href="mountains.html" position="3.5 1.5 -1.0" image="#thumbMountains"></a-link>
-      <a-entity id="sky"
-                geometry="primitive: sphere; radius: 65;"
-                material="shader: flat; color: #47c9ff; side: double"></a-entity>
-      <a-entity id="ground"
-                geometry="primitive: circle; radius: 8;"
-                rotation="-90 0 0"
-                material="shader: flat; src: #arena"></a-entity>
-      <a-entity id="leftHand" link-controls="hand: left"></a-entity>
-      <a-entity id="rightHand" link-controls="hand: right"></a-entity>
+    <a-scene>
+      <a-box position="0.070 0.5 -5.7"
+             rotation="0 25 0"
+             color="#A4A4A4"
+             scale="2.14 1 1"
+             event-set__enter="_event: mouseenter; color: #848484"
+             event-set__leave="_event: mouseleave; color: #A4A4A4"></a-box>
+
+      <a-box position="0.75 1.27 -6"
+             rotation="0 25 0"
+             color="#08088A"
+             scale=".5 .5 .5"
+             event-set__enter="_event: mouseenter; _target: #textPanel3; visible: true"
+             event-set__leave="_event: mouseleave; _target: #textPanel3; visible: false">
+        <a-text id="textPanel3"
+                value="Text Panel #3"
+                align="center"
+                color="#FFF"
+                visible="false"
+                position="0 1.15 0.55"
+                geometry="primitive: plane; width: 2"
+                material="color: #333"></a-text>
+      </a-box>
+      <a-box position="0.108 1.27 -5.73"
+             rotation="0 25 0"
+             color="#0000FF"
+             scale=".5 .5 .5"
+             event-set__enter="_event: mouseenter; _target: #textPanel2; visible: true"
+             event-set__leave="_event: mouseleave; _target: #textPanel2; visible: false">
+        <a-text id="textPanel2"
+                value="Text Panel #2"
+                align="center"
+                color="#FFF"
+                visible="false"
+                position="0 1.15 0.55"
+                geometry="primitive: plane; width: 2"
+                material="color: #333"></a-text>
+      </a-box>
+      <a-box position="-0.52 1.27 -5.36"
+             rotation="0 25 0"
+             color="#5882FA"
+             scale=".5 .5 .5"
+             event-set__enter="_event: mouseenter; _target: #textPanel1; visible: true"
+             event-set__leave="_event: mouseleave; _target: #textPanel1; visible: false">
+        <a-text id="textPanel1"
+                value="Text Panel #1"
+                align="center"
+                color="#FFF"
+                visible="false"
+                position="0 1.15 0.55"
+                geometry="primitive: plane; width: 2"
+                material="color: #333"></a-text>
+      </a-box>
+      <a-plane position="0 0 -6"
+               rotation="-90 25 0"
+               width="5"
+               height="5"
+               color="#7BC8A4"></a-plane>
+
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <a-sky color="#ECECEC"></a-sky>
     </a-scene>
 
   </body>
