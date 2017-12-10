@@ -23,7 +23,15 @@ AFRAME.registerComponent('toggle-modal-3', {
     });
   }
 });
-
+AFRAME.registerComponent('floor', {
+  init: function () {
+    this.el.addEventListener('click', function (evt) {
+      console.log("Clicked on Floor")
+      console.log(evt.detail.intersection.point)
+      document.querySelector("#camera").setAttribute('position', {x: evt.detail.intersection.point.x, y: evt.detail.intersection.point.y, z: evt.detail.intersection.point.z});
+    });
+  }
+});
 $( document ).ready(function() {
   $(".modal-close--1").click(function() {
     $(".modal--1").removeClass("is-visable");
