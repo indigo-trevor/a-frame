@@ -7,61 +7,48 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="bundle.js"></script>
   </head>
   <body>
+
+    <!-- START: Main Scene -->
     <a-scene>
+
+      <!-- Booth Box -->
       <a-box position="0.070 0.5 -5.7"
              rotation="0 25 0"
              color="#A4A4A4"
-             scale="2.14 1 1"
-             event-set__enter="_event: mouseenter; color: #848484"
-             event-set__leave="_event: mouseleave; color: #A4A4A4"></a-box>
+             scale="2.14 1 1"></a-box>
 
+       <!-- Toggle Box #3 -->
       <a-box position="0.75 1.27 -6"
              rotation="0 25 0"
              color="#08088A"
              scale=".5 .5 .5"
-             event-set__enter="_event: mouseenter; _target: #textPanel3; visible: true"
-             event-set__leave="_event: mouseleave; _target: #textPanel3; visible: false">
-        <a-text id="textPanel3"
-                value="Text Panel #3"
-                align="center"
-                color="#FFF"
-                visible="false"
-                position="0 1.15 0.55"
-                geometry="primitive: plane; width: 2"
-                material="color: #333"></a-text>
+             event-set__enter="_event: mouseenter; color: #7BC8A4"
+             event-set__leave="_event: mouseleave; color: #08088A"
+             toggle-modal-3>
       </a-box>
+
+      <!-- Toggle Box #2 -->
       <a-box position="0.108 1.27 -5.73"
              rotation="0 25 0"
              color="#0000FF"
              scale=".5 .5 .5"
-             event-set__enter="_event: mouseenter; _target: #textPanel2; visible: true"
-             event-set__leave="_event: mouseleave; _target: #textPanel2; visible: false">
-        <a-text id="textPanel2"
-                value="Text Panel #2"
-                align="center"
-                color="#FFF"
-                visible="false"
-                position="0 1.15 0.55"
-                geometry="primitive: plane; width: 2"
-                material="color: #333"></a-text>
+             event-set__enter="_event: mouseenter; color: #7BC8A4"
+             event-set__leave="_event: mouseleave; color: #0000FF"
+             toggle-modal-2>
       </a-box>
+
+      <!-- Toggle Box #1 -->
       <a-box position="-0.52 1.27 -5.36"
              rotation="0 25 0"
              color="#5882FA"
              scale=".5 .5 .5"
-             event-set__enter="_event: mouseenter; _target: #textPanel1; visible: true"
-             event-set__leave="_event: mouseleave; _target: #textPanel1; visible: false">
-        <a-text id="textPanel1"
-                value="Text Panel #1"
-                align="center"
-                color="#FFF"
-                visible="false"
-                position="0 1.15 0.55"
-                geometry="primitive: plane; width: 2"
-                material="color: #333"></a-text>
+             event-set__enter="_event: mouseenter; color: #7BC8A4"
+             event-set__leave="_event: mouseleave; color: #5882FA"
+             toggle-modal-1>
       </a-box>
       <a-plane position="0 0 -6"
                rotation="-90 25 0"
@@ -69,12 +56,191 @@
                height="5"
                color="#7BC8A4"></a-plane>
 
-      <a-camera>
-        <a-cursor></a-cursor>
+      <!-- Camera -->
+      <a-camera cursor="rayOrigin: mouse">
+        <!-- <a-cursor cursor="rayOrigin: mouse"></a-cursor> -->
       </a-camera>
 
+      <!-- Sky Background -->
       <a-sky color="#ECECEC"></a-sky>
+
     </a-scene>
+    <!-- END: Main Scene  -->
+
+    <!-- START: Modal 1 -->
+    <div class="modal modal--1">
+      <div class="container">
+        <div class="modal-close modal-close--1">
+          <h1>X</h1>
+        </div>
+        <div class="text-container">
+          <div class="row">
+            <div class="col-12">
+              <h1>Modal 1</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/bobby.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+              <ul>
+                <li><a href="http://indigoslate.com" target="_blank">Indigo Slate</a></li>
+                <li><a href="http://www.espn.com/" target="_blank">ESPN</a></li>
+                <li><a href="https://www.theverge.com/" target="_blank">The Verge</a></li>
+              </ul>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/otto.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/chewy.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Modal 1 -->
+    <!-- START: Modal 2 -->
+    <div class="modal modal--2">
+      <div class="container">
+        <div class="modal-close modal-close--2">
+          <h1>X</h1>
+        </div>
+        <div class="text-container">
+          <div class="row">
+            <div class="col-12">
+              <h1>Modal 2</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/chewy.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+              <ul>
+                <li><a href="http://indigoslate.com" target="_blank">Indigo Slate</a></li>
+                <li><a href="http://www.espn.com/" target="_blank">ESPN</a></li>
+                <li><a href="https://www.theverge.com/" target="_blank">The Verge</a></li>
+              </ul>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/otto.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/chewy.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Modal 2 -->
+    <!-- START: Modal 3 -->
+    <div class="modal modal--3">
+      <div class="container">
+        <div class="modal-close modal-close--3">
+          <h1>X</h1>
+        </div>
+        <div class="text-container">
+          <div class="row">
+            <div class="col-12">
+              <h1>Modal 3</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/ken.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+              <ul>
+                <li><a href="http://indigoslate.com" target="_blank">Indigo Slate</a></li>
+                <li><a href="http://www.espn.com/" target="_blank">ESPN</a></li>
+                <li><a href="https://www.theverge.com/" target="_blank">The Verge</a></li>
+              </ul>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/otto.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-4">
+              <img src="img/chewy.jpg" alt="">
+            </div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Modal 3 -->
 
   </body>
 </html>

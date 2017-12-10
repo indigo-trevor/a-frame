@@ -1,0 +1,40 @@
+.modal {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  overflow-y: scroll;
+  .container {
+    color: #fff;
+    .text-container {
+      img {
+        width: 100%;
+      }
+      h1 {
+        text-align: center;
+        margin: 25px 0px;
+      }
+      ul {
+        li {
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+    .modal-close {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      cursor: pointer;
+      z-index: 9999;
+      h1 {
+        margin: 0px 0px;
+      }
+    }
+  }
+}
