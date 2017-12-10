@@ -30,6 +30,11 @@ AFRAME.registerComponent('floor', {
       console.log(evt.detail.intersection.point)
       document.querySelector("#camera").setAttribute('position', {x: evt.detail.intersection.point.x, y: evt.detail.intersection.point.y, z: evt.detail.intersection.point.z});
     });
+    this.el.addEventListener('touchstart', function (evt) {
+      console.log("Clicked on Floor")
+      console.log(evt.detail.intersection.point)
+      document.querySelector("#camera").setAttribute('position', {x: evt.detail.intersection.point.x, y: evt.detail.intersection.point.y, z: evt.detail.intersection.point.z});
+    });
   }
 });
 $( document ).ready(function() {
